@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Challenge Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Math Challenge</h1>
+        
+        <div class="game-info">
+            <div class="score-board">
+                <div class="stat">
+                    <span class="label">Score:</span>
+                    <span class="value" id="score">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Streak:</span>
+                    <span class="value" id="streak">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Time:</span>
+                    <div class="flip-timer">
+                        <div class="flip-card">
+                            <div class="flip-card-inner" id="timerFlip">
+                                <div class="flip-card-front">60</div>
+                                <div class="flip-card-back">59</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="startScreen" class="screen active">
+            <h2>Welcome to Math Challenge!</h2>
+            <p>Test your math skills. You have 60 seconds to answer as many questions as possible.</p>
+            <button onclick="startGame()" class="btn btn-primary">Start Game</button>
+        </div>
+
+        <div id="gameScreen" class="screen">
+            <div class="question-container">
+                <div class="question">
+                    <span id="num1">0</span>
+                    <span id="operator">+</span>
+                    <span id="num2">0</span>
+                    <span class="equals">=</span>
+                    <span class="question-mark">?</span>
+                </div>
+            </div>
+
+            <div class="answer-container">
+                <input 
+                    type="number" 
+                    id="answerInput" 
+                    placeholder="Enter your answer" 
+                    onkeypress="handleKeyPress(event)"
+                    autocomplete="off"
+                >
+                <button onclick="submitAnswer()" class="btn btn-submit">Submit</button>
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </div>
+
+        <div id="endScreen" class="screen">
+            <h2>Game Over!</h2>
+            <div class="final-stats">
+                <div class="stat-large">
+                    <span class="label">Final Score:</span>
+                    <span class="value" id="finalScore">0</span>
+                </div>
+                <div class="stat-large">
+                    <span class="label">Questions Answered:</span>
+                    <span class="value" id="questionCount">0</span>
+                </div>
+                <div class="stat-large">
+                    <span class="label">Accuracy:</span>
+                    <span class="value" id="accuracy">0</span>%
+                </div>
+            </div>
+            <button onclick="location.reload()" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
